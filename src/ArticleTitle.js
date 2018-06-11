@@ -13,7 +13,7 @@ class ArticleTitle extends Component{
                     </div>
                 </div>
             </div>
-        )
+        );
     }
 }
 

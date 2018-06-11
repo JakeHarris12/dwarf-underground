@@ -19,7 +19,7 @@ class Header extends Component {
           <h3>Delving deep for the <span className="gold">shiniest</span> news</h3>
         </div>
       </div>
-    )
+    );
   }
 }
 

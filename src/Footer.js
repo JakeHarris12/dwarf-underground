@@ -9,7 +9,7 @@ class Footer extends Component{
                     <h6 className="float-right">All rights reserved</h6>
                 </footer>
             </div>
-        )
+        );
     }
 }
 

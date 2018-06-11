@@ -18,9 +18,53 @@ class ClickBait extends Component {
           </a>
         </div>
       </div>
-    )
+    );
   }
 }
+
+// class Comments extends Component {
+//   render(){
+//     return(
+//       <li>{this.props.comment}</li>
+//     );
+//   }
+// }
+
+class CommentBox extends Component {
+
+  constructor() {
+      super()
+      
+      this.state = {
+          comments: [],
+      }
+  }
+
+  render() {
+      return(
+          <div>
+              <form className="commentForm" onSubmit={(event) => {this.comment(event)}}>
+                  <input type="text" name="comment" placeholder="Enter a comment" />
+                  <button type="submit" onClick={(event) => {this.comment(event)}}>Comment</button>
+              </form>
+          </div>
+      );
+  }
+
+  comment(event) {
+    event.preventDefault()
+    const f = event.target.closest('.commentForm')
+    if(f.comment.value === ""){
+      return
+    }else{
+        const copy = [...this.state.comments]
+        copy.push(f.comment.value)
+        this.setState({ comments: copy })
+        console.log(this.state.comments)
+    }
+  }
+}
+
 class App extends Component {
 
   constructor() {
@@ -69,10 +113,25 @@ class App extends Component {
 
         <Ad />
 
+        <div className="comments">
+          <CommentBox />
+
+          {/* <ul>
+            {CommentBox.state.comments.map(comments => <Comments comment={comments} />)}
+          </ul> */}
+        </div>
+
         <div className="small-12 columns other-articles">
           <h2>From around the Realm</h2>
 
-          {this.state.clickbait.map(clickbait => <ClickBait title={clickbait.title} pic={clickbait.pic} alts={clickbait.alts} />)}
+          {this.state.clickbait.map(clickbait => 
+              <ClickBait 
+                title={clickbait.title} 
+                pic={clickbait.pic} 
+                alts={clickbait.alts} 
+              />
+            )
+          }
 
         </div>
       </main>

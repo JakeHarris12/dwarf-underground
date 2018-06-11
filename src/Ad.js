@@ -18,7 +18,7 @@ class Ad extends Component {
                     </div>
                 </aside>
             </div>
-        )
+        );
     }
 }
 
